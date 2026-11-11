@@ -1,0 +1,314 @@
+
+/* =========================================
+   SIDE NAVIGATION — DESKTOP
+========================================= */
+
+.side-navigation {
+  position: fixed;
+  z-index: 1200;
+
+  top: 50%;
+  left: 18px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 0;
+  background: transparent;
+
+  transform: translateY(-50%);
+}
+
+.side-navigation-link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+
+  overflow: visible;
+  border-radius: 12px;
+
+  color: var(--nav-muted);
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.side-navigation-icon {
+  display: grid;
+
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+
+  place-items: center;
+}
+
+.side-navigation-label {
+  padding-right: 14px;
+
+  font-size: 0.8rem;
+  font-weight: 650;
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateX(-5px);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+/* Hover / keyboard focus — desktop */
+
+.side-navigation-link:hover,
+.side-navigation-link:focus-visible {
+  width: max-content;
+  background: var(--nav-hover);
+  color: var(--nav-text);
+}
+
+.side-navigation-link:hover .side-navigation-label,
+.side-navigation-link:focus-visible .side-navigation-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Active item */
+
+.side-navigation-link.is-active {
+  color: var(--nav-active);
+}
+
+.side-navigation-link.is-active .side-navigation-icon {
+  position: relative;
+}
+
+.side-navigation-link.is-active .side-navigation-icon::before {
+  position: absolute;
+  left: 0;
+
+  width: 3px;
+  height: 22px;
+
+  border-radius: 3px;
+  background: var(--nav-active);
+
+  content: "";
+}
+
+/* Keyboard accessibility */
+
+.side-navigation-link:focus-visible {
+  outline: 2px solid var(--nav-active);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   COLOR THEMES
+========================================= */
+
+.side-navigation-light {
+  --nav-text: #22292c;
+  --nav-muted: #596563;
+  --nav-hover: rgb(34 41 44 / 7%);
+  --nav-active: #477e7a;
+  --nav-surface: #f4f0ea;
+}
+
+.side-navigation-dark {
+  --nav-text: #f4f0ea;
+  --nav-muted: #c3cbc9;
+  --nav-hover: rgb(244 240 234 / 9%);
+  --nav-active: #e99578;
+  --nav-surface: #22292c;
+}
+
+/* =========================================
+   TABLET — 681px to 1100px
+   Vertical icon-only navigation
+========================================= */
+
+@media (min-width: 681px) and (max-width: 1100px) {
+  .side-navigation {
+    top: 50%;
+    left: 16px;
+
+    flex-direction: column;
+    gap: 8px;
+
+    padding: 0;
+    background: transparent;
+
+    transform: translateY(-50%);
+  }
+
+  .side-navigation-link {
+    width: 42px;
+    min-width: 42px;
+    height: 42px;
+
+    gap: 0;
+    border-radius: 11px;
+
+    /* Prevent the item from expanding */
+    overflow: hidden;
+  }
+
+  .side-navigation-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+  }
+
+  /* Hide labels completely on tablets */
+  .side-navigation-label {
+    display: none;
+  }
+
+  /* Hover and focus remain within icon bounds */
+  .side-navigation-link:hover,
+  .side-navigation-link:focus-visible {
+    width: 42px;
+    background: var(--nav-hover);
+    color: var(--nav-text);
+  }
+
+  .side-navigation-link.is-active:hover,
+  .side-navigation-link.is-active:focus-visible {
+    color: var(--nav-active);
+  }
+}
+
+/* =========================================
+   MOBILE — 680px and below
+   Floating bottom navigation
+========================================= */
+
+@media (max-width: 680px) {
+  .side-navigation {
+    top: auto;
+    right: 50%;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    left: auto;
+
+    flex-direction: row;
+    gap: 4px;
+
+    padding: 5px;
+
+    border: 1px solid var(--nav-hover);
+    border-radius: 16px;
+
+    background: var(--nav-surface);
+
+    transform: translateX(50%);
+  }
+
+  .side-navigation-link {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+
+    gap: 0;
+    border-radius: 10px;
+
+    overflow: hidden;
+  }
+
+  .side-navigation-icon {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .side-navigation-label {
+    display: none;
+  }
+
+  .side-navigation-link:hover,
+  .side-navigation-link:focus-visible {
+    width: 40px;
+    background: var(--nav-hover);
+    color: var(--nav-text);
+  }
+
+  .side-navigation-link.is-active:hover,
+  .side-navigation-link.is-active:focus-visible {
+    color: var(--nav-active);
+  }
+}
+
+/* =========================================
+   ABOUT SECTION SPACING
+========================================= */
+
+@media (min-width: 681px) {
+  .about-container {
+    padding-left: clamp(90px, 10vw, 150px);
+    padding-right: clamp(24px, 4vw, 56px);
+    box-sizing: border-box;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .side-navigation-link,
+  .side-navigation-label {
+    transition: none;
+  }
+}
+
+
+
+/* =========================================
+   MOBILE NAVBAR — CONSISTENT DARK THEME
+   ========================================= */
+
+   @media (max-width: 680px) {
+    .side-navigation {
+      --nav-surface: #30383b;
+      --nav-text: #f4f0ea;
+      --nav-muted: #f4f0ea;
+      --nav-hover: rgb(244 240 234 / 9%);
+      --nav-active: #e99578;
+  
+      background: var(--nav-surface);
+      border: 1px solid rgb(244 240 234 / 12%);
+      box-shadow: 0 8px 30px rgb(0 0 0 / 18%);
+    }
+  
+    /* Override the light/dark section theme on mobile */
+    .side-navigation.side-navigation-light,
+    .side-navigation.side-navigation-dark,
+    .side-navigation.side-navigation-home {
+      --nav-surface: #30383b;
+      --nav-text: #f4f0ea;
+      --nav-muted: #f4f0ea;
+      --nav-hover: rgb(244 240 234 / 9%);
+      --nav-active: #e99578;
+  
+      background: #30383b;
+      border-color: rgb(244 240 234 / 12%);
+    }
+  }
+
+/* Remove active indicator line on mobile */
+@media (max-width: 680px) {
+  .side-navigation-link.is-active
+    .side-navigation-icon::before {
+    display: none;
+  }
+}
+  

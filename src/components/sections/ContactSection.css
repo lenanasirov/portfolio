@@ -1,0 +1,1198 @@
+
+/* =========================================
+   CONTACT SECTION
+========================================= */
+
+.portfolio-section.contact-section {
+    --contact-bg: #22292c;
+    --contact-cream: #f4f0ea;
+    --contact-peach: #e99578;
+    --contact-lime: #d8f36a;
+    --contact-muted: #c3cbc9;
+    --contact-plum: #342631;
+  
+    position: relative;
+    isolation: isolate;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    width: 100%;
+    min-height: 780px;
+  
+    padding:
+      var(--section-space-y, 96px)
+      65px
+      35px
+      155px;
+  
+    background: var(--dark, var(--contact-bg));
+    color: var(--ink, var(--contact-cream));
+  
+    overflow: hidden;
+  }
+  
+  /* =========================================
+     MAIN LAYOUT
+  ========================================= */
+  
+  .contact-content {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+  
+    align-items: start;
+    column-gap: clamp(20px, 3vw, 50px);
+  
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+  }
+  
+  /* =========================================
+     LEFT SIDE
+  ========================================= */
+  
+  .contact-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  
+    width: 100%;
+    max-width: 600px;
+    min-width: 0;
+  
+    justify-self: start;
+    text-align: left;
+  }
+  
+  /* =========================================
+     EYEBROW
+  ========================================= */
+  
+  .contact-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  
+    margin-bottom: var(--eyebrow-heading-gap, 20px);
+  
+    color: var(--muted, var(--contact-muted));
+  
+    font-size: var(--type-section-eyebrow, 0.75rem);
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+  
+  .contact-status-dot {
+    width: 8px;
+    height: 8px;
+    flex: 0 0 8px;
+  
+    border-radius: 50%;
+  
+    background: var(--contact-lime);
+    box-shadow: 0 0 12px rgba(216, 243, 106, 0.35);
+  
+    animation: contactStatusBlink 2s ease-in-out infinite;
+  }
+  
+  @keyframes contactStatusBlink {
+    0%,
+    100% {
+      opacity: 1;
+      box-shadow: 0 0 12px rgba(216, 243, 106, 0.35);
+    }
+  
+    50% {
+      opacity: 0.35;
+      box-shadow: 0 0 3px rgba(216, 243, 106, 0.13);
+    }
+  }
+  
+  /* =========================================
+     MAIN HEADING
+  ========================================= */
+  
+  .contact-heading {
+    width: 100%;
+    max-width: 650px;
+  
+    margin: 0;
+  
+    color: var(--ink, var(--contact-cream));
+  
+    font-family: "Manrope", sans-serif;
+    font-size: var(--type-section-title, 3.25rem);
+    font-weight: 800;
+  
+    letter-spacing:
+      var(--heading-letter-spacing, -0.045em);
+  
+    line-height:
+      var(--heading-line-height, 1.15);
+  
+    text-align: left;
+    text-wrap: balance;
+  }
+  
+  .contact-heading span {
+    display: block;
+    color: var(--contact-peach);
+  }
+  
+  /* =========================================
+     DESCRIPTION
+  ========================================= */
+  
+  .contact-description {
+    width: 100%;
+    max-width: 510px;
+  
+    margin:
+      var(--heading-subtitle-gap, 16px)
+      0 0;
+  
+    color: var(--muted, var(--contact-muted));
+  
+    font-size: var(--type-section-subtitle, 1.125rem);
+    font-weight: 400;
+    line-height: 1.6;
+  
+    text-align: left;
+  }
+  
+  /* =========================================
+     CONTACT FORM
+  ========================================= */
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  
+    width: 100%;
+    max-width: 530px;
+  
+    margin-top: 35px;
+  }
+  
+  /* Fieldset with integrated label */
+  
+  .contact-field {
+    width: 100%;
+    min-width: 0;
+  
+    margin: 0;
+    padding: 0 17px 5px;
+  
+    border: 1.5px solid rgba(233, 149, 120, 0.55);
+    border-radius: 20px;
+  
+    background: rgba(255, 255, 255, 0.015);
+  
+    transition:
+      border-color 220ms ease,
+      background 220ms ease,
+      box-shadow 220ms ease;
+  }
+  
+  .contact-field legend {
+    padding: 0 8px;
+  
+    color: var(--contact-peach);
+  
+    font-family: "Manrope", sans-serif;
+    font-size: 0.84rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  
+  .contact-field:focus-within {
+    border-color: var(--contact-peach);
+    background: rgba(233, 149, 120, 0.035);
+  
+    box-shadow:
+      0 0 0 3px rgba(233, 149, 120, 0.09);
+  }
+  
+  /* Inputs */
+  
+  .contact-field input,
+  .contact-field textarea {
+    display: block;
+  
+    width: 100%;
+    min-width: 0;
+  
+    padding: 11px 4px 13px;
+  
+    border: none;
+    outline: none;
+  
+    background: transparent;
+    color: var(--contact-cream);
+  
+    font-family: "Manrope", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  .contact-field input::placeholder,
+  .contact-field textarea::placeholder {
+    color: rgba(195, 203, 201, 0.5);
+    opacity: 1;
+  }
+  
+  .contact-field input:-webkit-autofill,
+  .contact-field input:-webkit-autofill:hover,
+  .contact-field input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--contact-cream);
+    transition: background-color 9999s ease-out;
+  }
+  
+  /* Message field */
+  
+  .contact-message-field {
+    border-radius: 20px;
+  }
+  
+  .contact-message-field textarea {
+    min-height: 130px;
+  
+    padding-top: 10px;
+    padding-bottom: 15px;
+  
+    resize: vertical;
+  }
+  
+  /* =========================================
+     SUBMIT BUTTON
+  ========================================= */
+  
+  .contact-form-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  
+    margin-top: 5px;
+  }
+  
+  .contact-submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  
+    min-width: 185px;
+    min-height: 52px;
+  
+    padding: 14px 25px;
+  
+    border: none;
+    border-radius: 999px;
+  
+    background: var(--contact-peach);
+    color: var(--contact-plum);
+  
+    font-family: "Manrope", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+  
+    cursor: pointer;
+  
+    transition:
+      transform 250ms ease,
+      background 250ms ease,
+      box-shadow 250ms ease;
+  }
+  
+  .contact-submit-button svg {
+    width: 18px;
+    height: 18px;
+  
+    transition: transform 250ms ease;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .contact-submit-button:hover:not(:disabled) {
+      transform: translateY(-3px);
+  
+      background: #ffb093;
+  
+      box-shadow:
+        0 10px 26px rgba(240, 155, 126, 0.18);
+    }
+  
+    .contact-submit-button:hover:not(:disabled) svg {
+      transform: translate(3px, -3px);
+    }
+  }
+  
+  .contact-submit-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+  }
+  
+  /* =========================================
+     FORM FEEDBACK
+  ========================================= */
+  
+  .contact-form-feedback {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+  
+    color: var(--contact-peach);
+  
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  
+  .contact-form-feedback:empty {
+    display: none;
+  }
+  
+  .contact-form-feedback svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  
+    margin-top: 2px;
+  }
+  
+  .contact-feedback-success {
+    color: var(--contact-lime);
+  }
+  
+  .contact-form-feedback a {
+    color: inherit;
+  
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  
+  /* =========================================
+     RIGHT SIDE — ANIMATED PORTRAIT
+  ========================================= */
+  
+  .contact-visual {
+    position: relative;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 100%;
+    min-width: 0;
+  
+    align-self: start;
+    margin-top: 65px;
+  
+    overflow: visible;
+  }
+  
+  .contact-portrait-wrap {
+    position: relative;
+  
+    width: min(100%, 590px);
+    max-width: none;
+  
+    flex-shrink: 0;
+    isolation: isolate;
+  }
+  
+  /* =========================================
+     SOFT MAUVE GLOW
+  ========================================= */
+  
+  .contact-portrait-wrap::before {
+    content: "";
+  
+    position: absolute;
+    z-index: -1;
+  
+    top: 6%;
+    left: -8%;
+  
+    width: 116%;
+    height: 85%;
+  
+    border-radius: 50%;
+  
+    background: radial-gradient(
+      ellipse at center,
+      rgba(173, 105, 163, 0.48) 0%,
+      rgba(137, 82, 140, 0.35) 30%,
+      rgba(95, 59, 111, 0.2) 55%,
+      rgba(65, 44, 83, 0.08) 72%,
+      transparent 90%
+    );
+  
+    filter: blur(24px);
+  
+    -webkit-mask-image: none;
+    mask-image: none;
+  
+    animation:
+      contactGlowBreathe 9s
+      ease-in-out infinite alternate;
+  
+    pointer-events: none;
+  }
+  
+  @keyframes contactGlowBreathe {
+    from {
+      transform: scale(0.97);
+      opacity: 0.7;
+    }
+  
+    to {
+      transform: scale(1.04);
+      opacity: 0.9;
+    }
+  }
+  
+  .contact-portrait-wrap::after {
+    display: none;
+  }
+  
+  /* =========================================
+     ANIMATION CONTAINER
+  ========================================= */
+  
+  .contact-animation {
+    position: relative;
+  
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  
+    width: 100%;
+    aspect-ratio: 490 / 580;
+  
+    overflow: visible;
+  
+    border: none;
+    border-radius: 0;
+  
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .contact-animation::before {
+    content: none;
+  }
+  
+  /* =========================================
+     ANIMATION FRAMES
+  ========================================= */
+  
+  .contact-animation img {
+    position: relative;
+    z-index: 1;
+  
+    display: block;
+  
+    width: 105%;
+    height: 105%;
+    max-width: none;
+  
+    flex-shrink: 0;
+  
+    object-fit: contain;
+    object-position: center bottom;
+  
+    transform: translateY(8%);
+  
+    background: transparent;
+  
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+  
+  /* =========================================
+     REPLAY BUTTON
+  ========================================= */
+  
+  .contact-replay-button {
+    position: absolute;
+    z-index: 5;
+  
+    right: 9%;
+    bottom: 13%;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  
+    border: 1px solid rgba(244, 240, 234, 0.2);
+    border-radius: 50%;
+  
+    background: rgba(52, 38, 49, 0.84);
+    color: var(--contact-cream);
+  
+    box-shadow:
+      0 5px 18px rgba(0, 0, 0, 0.12);
+  
+    cursor: pointer;
+  
+    transition:
+      background 250ms ease,
+      color 250ms ease,
+      border-color 250ms ease,
+      box-shadow 250ms ease,
+      transform 250ms ease;
+  }
+  
+  .contact-replay-button svg {
+    width: 19px;
+    height: 19px;
+  
+    transition: transform 450ms ease;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .contact-replay-button:hover {
+      background: rgba(67, 46, 62, 0.96);
+      color: var(--contact-peach);
+  
+      border-color: var(--contact-peach);
+  
+      transform: translateY(-3px);
+  
+      box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.2),
+        0 0 0 3px rgba(233, 149, 120, 0.08);
+    }
+  
+    .contact-replay-button:hover svg {
+      transform: rotate(-45deg);
+    }
+  }
+  
+  .contact-replay-button:active {
+    transform: scale(0.94);
+  }
+  
+  .contact-replay-playing svg {
+    animation:
+      contactReplaySpin 2.5s linear infinite;
+  }
+  
+  @keyframes contactReplaySpin {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* =========================================
+     BOTTOM CONTACT STRIP
+  ========================================= */
+  
+  .contact-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  
+    gap: 22px 35px;
+  
+    width: 100%;
+    max-width: 1400px;
+  
+    margin: 55px auto 0;
+    padding: 25px 0;
+  
+    border-top: 1px solid rgba(255, 240, 229, 0.12);
+    border-bottom: 1px solid rgba(255, 240, 229, 0.12);
+  }
+  
+  /* Direct contact links */
+  
+  .contact-direct-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    gap: 15px 30px;
+  }
+  
+  .contact-direct-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  
+    color: var(--contact-muted);
+  
+    font-size: 0.86rem;
+    font-weight: 500;
+  
+    text-decoration: none;
+    overflow-wrap: anywhere;
+  
+    transition: color 200ms ease;
+  }
+  
+  .contact-direct-links svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  
+    color: var(--contact-peach);
+  }
+  
+  .contact-direct-links a:hover {
+    color: var(--contact-peach);
+  }
+  
+  /* Social links */
+  
+  .contact-socials {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  
+    gap: 16px 26px;
+  }
+  
+  .contact-socials a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  
+    padding: 0;
+    border: none;
+  
+    background: transparent;
+    color: var(--contact-muted);
+  
+    font-family: "Manrope", sans-serif;
+    font-size: 0.86rem;
+    font-weight: 600;
+  
+    text-decoration: none;
+    white-space: nowrap;
+  
+    transition:
+      color 200ms ease,
+      transform 200ms ease;
+  }
+  
+  .contact-socials svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  }
+  
+  @media (hover: hover) and (pointer: fine) {
+    .contact-socials a:hover {
+      color: var(--contact-peach);
+      transform: translateY(-2px);
+    }
+  }
+  
+  /* =========================================
+     FOOTER
+  ========================================= */
+  
+  .contact-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    gap: 20px;
+  
+    width: 100%;
+    max-width: 1400px;
+  
+    margin: 0 auto;
+    padding-top: 23px;
+  
+    color: #a8aaa8;
+    font-size: 0.75rem;
+  }
+  
+  .contact-footer a {
+    color: var(--contact-cream);
+  
+    text-decoration: none;
+    white-space: nowrap;
+  
+    transition: color 200ms ease;
+  }
+  
+  .contact-footer a:hover {
+    color: var(--contact-peach);
+  }
+  
+  /* =========================================
+     LARGE DESKTOP
+     1500px AND ABOVE
+  ========================================= */
+  
+  @media (min-width: 1500px) {
+    .portfolio-section.contact-section {
+      padding-left: 155px;
+      padding-right: 65px;
+    }
+  
+    .contact-content {
+      grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(0, 0.8fr);
+  
+      column-gap: 45px;
+    }
+  
+    .contact-copy,
+    .contact-heading {
+      max-width: 720px;
+    }
+  
+    .contact-description,
+    .contact-form {
+      max-width: 620px;
+    }
+  
+    .contact-portrait-wrap {
+      width: min(100%, 550px);
+    }
+  }
+  
+  /* =========================================
+     MEDIUM DESKTOP
+     1101px - 1499px
+  ========================================= */
+  
+  @media (min-width: 1101px) and (max-width: 1499px) {
+    .portfolio-section.contact-section {
+      padding-right: 55px;
+      padding-bottom: 35px;
+      padding-left: 170px;
+    }
+  
+    .contact-content {
+      grid-template-columns:
+        minmax(0, 1.05fr)
+        minmax(0, 0.95fr);
+  
+      column-gap: 25px;
+    }
+  
+    .contact-description {
+      max-width: 480px;
+    }
+  
+    .contact-form {
+      max-width: 500px;
+    }
+  
+    .contact-visual {
+      margin-top: 75px;
+    }
+  
+    .contact-portrait-wrap {
+      width: min(100%, 510px);
+    }
+  }
+  
+  /* =========================================
+     SMALLER DESKTOP
+     1101px - 1350px
+  ========================================= */
+  
+  @media (min-width: 1101px) and (max-width: 1350px) {
+    .contact-visual {
+      margin-top: 90px;
+    }
+  
+    .contact-portrait-wrap {
+      width: min(100%, 460px);
+    }
+  }
+  
+  /* =========================================
+     TABLET / SMALL DESKTOP
+     651px - 1100px
+  
+     One column.
+     Form above animation.
+     Accounts for side navigation.
+  ========================================= */
+  
+  @media (min-width: 651px) and (max-width: 1100px) {
+    .portfolio-section.contact-section {
+      min-height: auto;
+  
+      padding:
+        var(--section-space-y, 72px)
+        40px
+        30px
+        110px;
+    }
+  
+    .contact-content {
+      grid-template-columns: minmax(0, 1fr);
+  
+      width: 100%;
+      max-width: none;
+  
+      row-gap: 0;
+    }
+  
+    .contact-copy {
+      width: 100%;
+      max-width: none;
+      min-width: 0;
+    }
+  
+    .contact-heading {
+      max-width: 850px;
+    }
+  
+    .contact-description {
+      max-width: 750px;
+    }
+  
+    .contact-form {
+      width: 100%;
+      max-width: none;
+  
+      margin-top: 32px;
+    }
+  
+    .contact-field {
+      width: 100%;
+    }
+  
+    /* Illustration below form */
+  
+    .contact-visual {
+      width: 100%;
+  
+      justify-content: center;
+      align-self: center;
+  
+      margin-top: -20px;
+    }
+  
+    .contact-portrait-wrap {
+      width: min(100%, 410px);
+    }
+  
+    .contact-animation {
+      margin-top: -25px;
+    }
+  
+    .contact-bottom {
+      margin-top: 25px;
+    }
+  
+    /* Responsive glow */
+  
+    .contact-portrait-wrap::before {
+      top: 12%;
+      left: -5%;
+  
+      width: 110%;
+      height: 80%;
+  
+      filter: blur(20px);
+    }
+  }
+  
+  /* =========================================
+     MOBILE
+     UP TO 650px
+  ========================================= */
+  
+  @media (max-width: 650px) {
+    .portfolio-section.contact-section {
+      min-height: auto;
+  
+      padding:
+        var(--section-space-y, 56px)
+        22px
+        calc(110px + env(safe-area-inset-bottom, 0px));
+    }
+  
+    .contact-content {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 0;
+    }
+  
+    .contact-copy {
+      width: 100%;
+      max-width: none;
+    }
+  
+    .contact-description {
+      max-width: 440px;
+    }
+  
+    /* Contact form */
+  
+    .contact-form {
+      max-width: none;
+  
+      margin-top: 30px;
+      gap: 16px;
+    }
+  
+    .contact-field {
+      border-radius: 17px;
+    }
+  
+    .contact-field input,
+    .contact-field textarea {
+      font-size: 16px;
+    }
+  
+    .contact-message-field textarea {
+      min-height: 125px;
+    }
+  
+    .contact-submit-button {
+      min-height: 50px;
+      padding: 13px 23px;
+    }
+  
+    /* Illustration */
+  
+    .contact-visual {
+      justify-content: center;
+      align-self: center;
+  
+      margin-top: 0;
+    }
+  
+    .contact-portrait-wrap {
+      width: min(100%, 290px);
+    }
+  
+    .contact-animation {
+      margin-top: -20px;
+    }
+  
+    .contact-animation img {
+      width: 105%;
+      height: 105%;
+  
+      transform: translateY(8%);
+    }
+  
+    .contact-portrait-wrap::before {
+      top: 13%;
+      left: 0;
+  
+      width: 100%;
+      height: 76%;
+  
+      filter: blur(17px);
+    }
+  
+    .contact-replay-button {
+      right: 5%;
+      bottom: 12%;
+  
+      width: 44px;
+      height: 44px;
+    }
+  
+    /* Bottom contact links */
+  
+    .contact-bottom {
+      margin-top: 25px;
+      padding: 22px 0;
+  
+      gap: 24px;
+    }
+  
+    .contact-direct-links {
+      flex-direction: column;
+      align-items: flex-start;
+  
+      gap: 14px;
+    }
+  
+    .contact-socials {
+      gap: 20px;
+    }
+  
+    .contact-socials a {
+      font-size: 0.82rem;
+    }
+  
+    /* Footer */
+  
+    .contact-footer {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      flex-wrap: wrap;
+      gap: 20px;
+  
+      width: 100%;
+  
+      margin-top: 36px;
+      padding-top: 24px;
+  
+      text-align: center;
+    }
+  
+    .contact-footer a {
+      order: -1;
+  
+      color: var(--contact-peach);
+      font-weight: 600;
+    }
+  
+    .contact-footer span {
+      color: #aeb8b6;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* =========================================
+     MOBILE TRANSITION
+     651px - 680px
+  
+     Keep the existing mobile-style footer.
+  ========================================= */
+  
+  @media (min-width: 651px) and (max-width: 680px) {
+    .portfolio-section.contact-section {
+      padding-bottom:
+        calc(110px + env(safe-area-inset-bottom, 0px));
+    }
+  
+    .contact-footer {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+  
+      gap: 20px;
+  
+      margin-top: 36px;
+      padding-top: 24px;
+  
+      text-align: center;
+    }
+  
+    .contact-footer a {
+      order: -1;
+      color: var(--contact-peach);
+      font-weight: 600;
+    }
+  
+    .contact-footer span {
+      color: #aeb8b6;
+      font-size: 0.85rem;
+    }
+  }
+  
+  /* =========================================
+     SMALL MOBILE
+     UP TO 380px
+  ========================================= */
+  
+  @media (max-width: 380px) {
+    .portfolio-section.contact-section {
+      padding-right: 18px;
+      padding-left: 18px;
+    }
+  
+    .contact-field {
+      padding-inline: 13px;
+    }
+  
+    .contact-portrait-wrap {
+      width: min(100%, 250px);
+    }
+  
+    .contact-animation {
+      margin-top: -15px;
+    }
+  
+    .contact-socials {
+      gap: 16px;
+    }
+  
+    .contact-socials a {
+      font-size: 0.78rem;
+    }
+  
+    .contact-direct-links a {
+      font-size: 0.79rem;
+    }
+  
+    .contact-footer {
+      font-size: 0.68rem;
+    }
+  
+    .contact-replay-button {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  
+  /* =========================================
+     ACCESSIBILITY
+  ========================================= */
+  
+  .contact-submit-button:focus-visible,
+  .contact-direct-links a:focus-visible,
+  .contact-socials a:focus-visible,
+  .contact-replay-button:focus-visible,
+  .contact-footer a:focus-visible,
+  .contact-form-feedback a:focus-visible {
+    outline: 2px solid var(--contact-lime);
+    outline-offset: 4px;
+  }
+  
+  /* =========================================
+     REDUCED MOTION
+  ========================================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .contact-status-dot,
+    .contact-replay-playing svg,
+    .contact-portrait-wrap::before,
+    .contact-portrait-wrap::after {
+      animation: none;
+    }
+  
+    .contact-field,
+    .contact-submit-button,
+    .contact-submit-button svg,
+    .contact-direct-links a,
+    .contact-socials a,
+    .contact-replay-button,
+    .contact-replay-button svg,
+    .contact-footer a {
+      transition: none;
+    }
+  
+    .contact-submit-button:hover,
+    .contact-socials a:hover,
+    .contact-replay-button:hover {
+      transform: none;
+    }
+  }
+  

@@ -1,0 +1,1482 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+.portfolio-page {
+  --dark: #22292c;
+  --panel: #352a35;
+  --ink: #f4f0ea;
+  --muted: #c3cbc9;
+  --lavender: #e99578;
+  --coral: #d98165;
+  --light-panel: #f4f0ea;
+  --teal: #b9d1cc;
+  --teal-dark: #477e7a;
+  --aubergine: #352a35;
+
+  /* Shared typography */
+  --type-section-title: 3.25rem;
+  --type-section-eyebrow: 0.75rem;
+  --type-section-subtitle: 1.125rem;
+  --type-body: 1rem;
+
+  /* Shared layout */
+  --layout-max-width: 1200px;
+  --section-space-y: 96px;
+  --section-space-x: 48px;
+  --heading-content-gap: 48px;
+
+  /* Heading spacing */
+  --eyebrow-heading-gap: 20px;
+  --heading-subtitle-gap: 16px;
+
+  /* Text styling */
+  --heading-line-height: 1.15;
+  --body-line-height: 1.7;
+  --heading-letter-spacing: -0.045em;
+
+  width: 100%;
+  min-height: 100svh;
+
+  color: var(--ink);
+  background: var(--dark);
+  font-family: "Manrope", sans-serif;
+}
+
+.portfolio-section {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+
+  padding:
+    clamp(80px, 10vh, 120px)
+    clamp(24px, 7vw, 100px);
+
+  scroll-margin-top: 0;
+}
+
+.portfolio-section[data-theme="dark"] {
+  color: var(--ink);
+  background: var(--dark);
+}
+
+.portfolio-section[data-theme="light"] {
+  color: var(--dark);
+  background: var(--light-panel);
+}
+
+/* =========================================
+   HOME LAYOUT
+========================================= */
+
+.portfolio {
+  position: relative;
+  display: grid;
+
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+
+  grid-template-columns:
+    minmax(0, 30fr)
+    minmax(0, 70fr);
+
+  grid-template-rows: minmax(100svh, auto);
+
+  overflow: clip;
+
+  color: var(--ink);
+  background: var(--dark);
+  isolation: isolate;
+  font-family: "Manrope", sans-serif;
+}
+
+/* =========================================
+   MOVING CREAM PANEL + PORTRAIT
+========================================= */
+
+.portrait-stage {
+  position: absolute;
+  z-index: 3;
+
+  top: 0;
+  left: 0;
+
+  width: 30%;
+  height: 100%;
+
+  overflow: visible;
+  pointer-events: none;
+
+  transform: translateX(
+    calc(-100% - min(15vw, 200px) - 2px)
+  );
+
+  transition:
+    transform 1.25s
+    cubic-bezier(0.65, 0, 0.35, 1);
+
+  will-change: transform;
+}
+
+.portfolio.transition-started .portrait-stage {
+  transform: translateX(0);
+}
+
+/* =========================================
+   CREAM PANEL
+========================================= */
+
+.portrait-panel {
+  position: absolute;
+  z-index: 0;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: var(--light-panel);
+}
+
+/* =========================================
+   PORTRAIT POSITION
+========================================= */
+
+.portrait-positioner {
+  position: absolute;
+  z-index: 2;
+
+  top: 50%;
+  left: 100%;
+
+  width: min(30vw, 400px);
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.portrait-motion-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  transform-origin: center;
+}
+
+/* =========================================
+   PORTRAIT CIRCLE
+========================================= */
+
+.portrait-circle {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  border-radius: 50%;
+  background: transparent;
+
+  box-shadow:
+    0 0 0 1px rgb(185 209 204 / 45%),
+    0 20px 50px rgb(34 41 44 / 16%);
+}
+
+.portrait-background {
+  position: absolute;
+  z-index: 0;
+
+  inset: 0;
+
+  border-radius: 50%;
+  background: #72827a;
+}
+
+/* =========================================
+   PORTRAIT IMAGE
+========================================= */
+
+.portrait-image {
+  position: absolute;
+  display: block;
+
+  top: -15%;
+  left: -10%;
+
+  width: 120%;
+  height: 122%;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  pointer-events: none;
+}
+
+.portrait-image-base {
+  z-index: 1;
+}
+
+/* =========================================
+   HAIR OVERLAY
+========================================= */
+
+.portrait-hair-overlay {
+  position: absolute;
+  z-index: 4;
+
+  inset: 0;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+.portrait-image-hair {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 50%,
+    transparent 70%
+  );
+
+  mask-image: linear-gradient(
+    to bottom,
+    black 0%,
+    black 50%,
+    transparent 60%
+  );
+}
+
+/* =========================================
+   CONTENT PANEL
+========================================= */
+
+.content-panel {
+  position: relative;
+  z-index: 1;
+
+  grid-column: 2;
+  grid-row: 1;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 100svh;
+
+  padding:
+    100px
+    clamp(28px, 4vw, 64px)
+    76px
+    clamp(290px, 25vw, 390px);
+
+  background: var(--dark);
+}
+
+/* =========================================
+   NAVIGATION TOGGLE
+========================================= */
+
+.navbar {
+  position: fixed;
+  z-index: 1100;
+
+  top: 22px;
+  right: clamp(20px, 3vw, 48px);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.portfolio:not(.name-settled) .navbar {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 1101;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  border: none;
+  border-radius: 0;
+
+  background: transparent;
+  box-shadow: none;
+
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle span {
+  display: block;
+
+  width: 25px;
+  height: 2px;
+  flex: 0 0 2px;
+
+  border-radius: 2px;
+  background: var(--ink);
+
+  transition:
+    transform 200ms ease,
+    opacity 200ms ease,
+    background-color 200ms ease;
+}
+
+.menu-toggle:hover span {
+  background: var(--lavender);
+}
+
+.menu-toggle:hover span:first-child {
+  transform: translateX(-3px);
+}
+
+.menu-toggle:hover span:last-child {
+  transform: translateX(3px);
+}
+
+.menu-toggle.is-open span:first-child {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.is-open span:last-child {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   NAVIGATION DRAWER
+========================================= */
+
+.menu-panel {
+  position: fixed;
+  z-index: 1090;
+
+  top: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  gap: 8px;
+
+  width: min(350px, 85vw);
+  height: 100dvh;
+
+  padding: 80px 34px 40px;
+
+  border-left: 1px solid rgb(244 240 234 / 12%);
+
+  background: #293336;
+  box-shadow: -20px 0 60px rgb(0 0 0 / 18%);
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translateX(100%);
+
+  transition:
+    transform 280ms ease,
+    opacity 280ms ease,
+    visibility 0s linear 280ms;
+}
+
+.menu-panel-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: translateX(0);
+
+  transition:
+    transform 280ms ease,
+    opacity 280ms ease,
+    visibility 0s;
+}
+
+.menu-kicker {
+  margin: 0 0 18px;
+
+  color: var(--muted);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.menu-panel a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  padding: 13px 0;
+
+  border-bottom: 1px solid rgb(244 240 234 / 12%);
+
+  color: var(--ink);
+
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.menu-panel a span {
+  color: var(--muted);
+
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.menu-panel a:hover,
+.menu-panel a:focus-visible {
+  color: var(--lavender);
+}
+
+/* =========================================
+   INTRO NAME ANIMATION
+========================================= */
+
+.intro-overlay {
+  position: fixed;
+  z-index: 1001;
+
+  top: 0;
+  left: 0;
+
+  pointer-events: none;
+  will-change: transform;
+}
+
+.intro-copy {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  text-align: left;
+}
+
+/* =========================================
+   GREETING
+========================================= */
+
+.intro-greeting {
+  position: absolute;
+
+  bottom: calc(100% + 12px);
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: clamp(0.7rem, 1.2vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+
+  white-space: nowrap;
+
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 600ms ease,
+    transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-greeting.greeting-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.portfolio.transition-started .intro-greeting {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+/* =========================================
+   STATUS DOT
+========================================= */
+
+.status-dot {
+  display: inline-block;
+
+  width: 8px;
+  height: 8px;
+  flex: 0 0 8px;
+
+  border-radius: 50%;
+  background: #8ed6b0;
+
+  box-shadow: 0 0 8px rgb(142 214 176 / 45%);
+
+  animation: status-blink 1.5s ease-in-out infinite;
+}
+
+@keyframes status-blink {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgb(142 214 176 / 45%);
+  }
+
+  50% {
+    opacity: 0.35;
+    box-shadow: 0 0 2px rgb(142 214 176 / 20%);
+  }
+}
+
+/* =========================================
+   NAME
+========================================= */
+
+.intro-name {
+  width: 100%;
+  margin: 0;
+
+  color: var(--ink);
+
+  font-size: clamp(2.5rem, 5vw, 5.6rem);
+  font-weight: 750;
+  letter-spacing: -0.06em;
+  line-height: 0.8;
+
+  overflow-wrap: normal;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.name-period {
+  color: var(--lavender);
+}
+
+.typing-cursor {
+  display: inline-block;
+
+  width: 0.065em;
+  height: 0.8em;
+  margin-left: 0.1em;
+
+  background: var(--lavender);
+
+  animation: cursor-blink 0.8s step-end infinite;
+
+  vertical-align: -0.02em;
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  width: 100%;
+  max-width: 540px;
+  margin: auto 0;
+}
+
+.intro-placeholder {
+  width: 100%;
+  margin: 0;
+
+  visibility: hidden;
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+.intro-placeholder-visible {
+  visibility: visible;
+  opacity: 1;
+
+  pointer-events: auto;
+}
+
+.intro-placeholder .intro-name {
+  text-align: left;
+  transition: none;
+}
+
+/* =========================================
+   ROLE LABEL
+========================================= */
+
+.hero-role {
+  margin: 0;
+
+  color: var(--teal);
+
+  font-size: clamp(1.05rem, 1.35vw, 1.2rem);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.005em;
+
+  text-align: left;
+
+  will-change: transform, opacity;
+}
+
+/* =========================================
+   HERO DESCRIPTION
+========================================= */
+
+.hero-copy {
+  width: 100%;
+  max-width: 440px;
+
+  margin-top: 36px;
+
+  text-align: left;
+}
+
+.hero-description {
+  max-width: 520px;
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.7;
+
+  text-align: left;
+}
+
+/* =========================================
+   STAGGERED HEADLINE
+========================================= */
+
+.hero-headline {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.12em;
+  margin-bottom: 0.9rem;
+
+  color: var(--ink);
+
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+}
+
+.hero-headline > span {
+  display: block;
+  will-change: transform, opacity;
+}
+
+.hero-headline-accent {
+  color: var(--lavender);
+}
+
+/* =========================================
+   SUPPORTING TEXT
+========================================= */
+
+.hero-supporting-text {
+  max-width: 380px;
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.7;
+
+  will-change: transform, opacity;
+}
+
+/* =========================================
+   HERO BUTTONS
+========================================= */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 14px;
+  margin-top: 30px;
+
+  will-change: transform, opacity;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 0 23px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-size: 0.88rem;
+  font-weight: 650;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--lavender);
+  outline-offset: 4px;
+}
+
+.button-primary {
+  background: var(--lavender);
+  border-color: var(--lavender);
+  color: var(--dark);
+}
+
+.button-primary:hover {
+  background: #f1ad94;
+  border-color: #f1ad94;
+}
+
+.button-secondary {
+  background: transparent;
+  border-color: var(--teal);
+  color: var(--teal);
+}
+
+.button-secondary:hover {
+  background: rgb(185 209 204 / 8%);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+@media (hover: hover) {
+  .button:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.anchor-target {
+  display: block;
+  height: 0;
+}
+
+/* =========================================
+   SHORT DESKTOP SCREENS
+========================================= */
+
+@media (max-height: 760px) and (min-width: 681px) {
+  .content-panel {
+    padding-top: 85px;
+    padding-bottom: 65px;
+  }
+
+  .hero-copy {
+    margin-top: 32px;
+  }
+
+  .hero-role {
+    margin-bottom: 6px;
+  }
+
+  .hero-headline {
+    gap: 0.1em;
+    margin-bottom: 0.7rem;
+  }
+
+  .hero-supporting-text {
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    margin-top: 20px;
+  }
+
+  .portrait-positioner {
+    width: min(28vw, 360px);
+  }
+}
+
+/* =========================================
+   LAPTOP DESIGN VARIABLES
+   901px - 1299px
+========================================= */
+
+@media (min-width: 901px) and (max-width: 1299px) {
+  .portfolio-page {
+    --type-section-title: 2.625rem;
+    --type-section-subtitle: 1.0625rem;
+
+    --section-space-y: 80px;
+    --section-space-x: 32px;
+    --heading-content-gap: 40px;
+  }
+}
+
+/* =========================================
+   TABLET
+   681px - 900px
+========================================= */
+
+@media (min-width: 681px) and (max-width: 900px) {
+  .portfolio-page {
+    --type-section-title: 2.25rem;
+    --type-section-subtitle: 1rem;
+    --type-body: 0.9375rem;
+
+    --section-space-y: 72px;
+    --section-space-x: 24px;
+    --heading-content-gap: 36px;
+
+    --eyebrow-heading-gap: 16px;
+    --heading-subtitle-gap: 12px;
+  }
+
+  .portfolio {
+    grid-template-columns:
+      minmax(0, 28fr)
+      minmax(0, 72fr);
+  }
+
+  .portrait-stage {
+    width: 28%;
+
+    transform: translateX(
+      calc(-100% - min(14.5vw, 135px) - 2px)
+    );
+  }
+
+  .content-panel {
+    padding-right: 28px;
+    padding-left: clamp(175px, 21vw, 225px);
+  }
+
+  .intro-name {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+  }
+
+  .intro-greeting {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-role {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.05rem, 1.65vw, 1.25rem);
+  }
+
+  .hero-supporting-text {
+    font-size: 0.92rem;
+  }
+
+  .hero-actions {
+    gap: 10px;
+  }
+
+  .button {
+    padding-right: 17px;
+    padding-left: 17px;
+  }
+
+  .portrait-positioner {
+    width: min(29vw, 270px);
+  }
+}
+
+/* =========================================
+   MOBILE
+   680px AND BELOW
+========================================= */
+
+@media (max-width: 680px) {
+  .portfolio-page {
+    --type-section-title: 2rem;
+    --type-section-eyebrow: 0.6875rem;
+    --type-section-subtitle: 0.9375rem;
+    --type-body: 0.9375rem;
+
+    --section-space-y: 56px;
+    --section-space-x: 20px;
+    --heading-content-gap: 28px;
+
+    --eyebrow-heading-gap: 16px;
+    --heading-subtitle-gap: 12px;
+
+    /*
+      Space occupied by the fixed bottom
+      navigation and the desired separation.
+    */
+    --mobile-nav-clearance: 112px;
+  }
+
+  /* Home can grow naturally with content */
+
+  .portfolio-page .portfolio {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 0;
+    height: auto;
+
+    overflow: clip;
+  }
+
+  /* Cream strip and portrait entrance */
+
+  .portrait-stage {
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 160px;
+
+    transform: translateX(
+      calc(-100% - 90px)
+    );
+  }
+
+  .portfolio.transition-started .portrait-stage {
+    transform: translateX(0);
+  }
+
+  .portrait-panel {
+    width: 100%;
+    height: 160px;
+  }
+
+  .portrait-positioner {
+    position: absolute;
+    z-index: 3;
+
+    /*
+      Use the same vertical portrait position
+      on mobile to avoid the portrait getting
+      too close to the name at 393px.
+    */
+    top: 160px;
+    left: 50%;
+
+    width: min(44vw, 165px);
+    aspect-ratio: 1;
+
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .portrait-circle {
+    overflow: hidden;
+    border-radius: 50%;
+    background: transparent;
+  }
+
+  /*
+    Mobile text layout.
+
+    Keep the portrait animation untouched,
+    but use less unnecessary vertical spacing.
+  */
+
+  .portfolio-page .content-panel {
+    position: relative;
+    z-index: 1;
+
+    order: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    min-height: 0;
+    height: auto;
+
+    margin-top: 160px;
+
+    padding:
+      105px
+      28px
+      var(--mobile-nav-clearance);
+
+    background: var(--dark);
+  }
+
+  .navbar {
+    top: 12px;
+    right: 16px;
+  }
+
+  .hero-content {
+    margin: 0;
+    max-width: 100%;
+  }
+
+  .intro-name {
+    font-size: clamp(2.25rem, 9vw, 3.6rem);
+  }
+
+  .intro-greeting {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+  }
+
+  .intro-placeholder .intro-name {
+    white-space: nowrap;
+  }
+
+  .intro-overlay {
+    max-width: none;
+  }
+
+  .hero-role {
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+    margin-top: 25px;
+  }
+
+  .hero-headline {
+    font-size: clamp(1.1rem, 4.2vw, 1.3rem);
+  }
+
+  .hero-supporting-text {
+    font-size: 0.95rem;
+  }
+
+  /*
+    Keep both CTA buttons in one row.
+    If there isn't enough space, wrapping
+    still works rather than causing overflow.
+  */
+
+  .portfolio-page .hero-actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .portfolio-page .hero-actions .button {
+    width: auto;
+    flex: 0 0 auto;
+
+    white-space: nowrap;
+  }
+
+  /* Other sections follow their content height */
+
+  .portfolio-section.about-section,
+  .portfolio-section.skills-section,
+  .portfolio-section.projects-section,
+  .portfolio-section.experience-section,
+  .portfolio-section.contact-section {
+    min-height: auto;
+  }
+
+  .portfolio-section.about-section,
+  .portfolio-section.skills-section,
+  .portfolio-section.projects-section,
+  .portfolio-section.experience-section {
+    padding-top: var(--section-space-y);
+    padding-bottom: var(--section-space-y);
+  }
+
+  .portfolio-section.contact-section {
+    padding-top: var(--section-space-y);
+
+    padding-bottom: calc(
+      110px + env(safe-area-inset-bottom, 0px)
+    );
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+   390px AND BELOW
+========================================= */
+
+@media (max-width: 390px) {
+  /*
+    Keep the original smaller portrait size.
+  */
+
+  .portrait-positioner {
+    top: 160px;
+    width: min(46vw, 145px);
+  }
+
+  .portfolio-page .content-panel {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  /*
+    Compact buttons that fit together at
+    375px without overlapping each other.
+  */
+
+  .portfolio-page .hero-actions {
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    gap: 10px;
+  }
+
+  .portfolio-page .hero-actions .button {
+    width: auto;
+    min-width: 0;
+    min-height: 46px;
+
+    padding-inline: 17px;
+
+    font-size: 0.82rem;
+    white-space: nowrap;
+  }
+}
+
+/* =========================================
+   SHORT MOBILE SCREENS
+   720px HEIGHT OR LESS
+
+   Addresses the iPhone SE overlap.
+========================================= */
+
+@media (max-width: 680px) and (max-height: 720px) {
+  /*
+    The previous 120px top padding placed
+    the CTA buttons underneath fixed nav.
+
+    Tighten the spacing ABOVE the buttons
+    instead of adding only bottom padding.
+  */
+
+  .portfolio-page .content-panel {
+    padding-top: 105px;
+
+    padding-bottom: calc(
+      var(--mobile-nav-clearance) +
+      env(safe-area-inset-bottom, 0px)
+    );
+  }
+
+  .portfolio-page .hero-copy {
+    margin-top: 20px;
+  }
+
+  .portfolio-page .hero-headline {
+    gap: 0.08em;
+    margin-bottom: 0.65rem;
+  }
+
+  .portfolio-page .hero-supporting-text {
+    line-height: 1.6;
+  }
+
+  .portfolio-page .hero-actions {
+    margin-top: 18px;
+  }
+
+  .portfolio-page .portrait-positioner {
+    top: 150px;
+    width: min(50vw, 175px);
+  }
+}
+
+/* =========================================
+   EXTRA SHORT MOBILE
+   600px HEIGHT OR LESS
+========================================= */
+
+@media (max-width: 680px) and (max-height: 600px) {
+  /*
+    On extremely short screens, prioritize
+    readable content and natural scrolling.
+  */
+
+  .portfolio-page .content-panel {
+    padding-top: 65px;
+  }
+
+  .portfolio-page .hero-copy {
+    margin-top: 18px;
+  }
+
+  .portfolio-page .hero-actions {
+    margin-top: 16px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .portrait-stage {
+    transform: translateX(0) !important;
+    will-change: auto;
+  }
+
+  .button:hover {
+    transform: none;
+  }
+
+  .hero-role,
+  .hero-headline > span,
+  .hero-supporting-text,
+  .hero-actions {
+    will-change: auto;
+  }
+}
+
+
+/* =========================================
+   HOME — TALL MOBILE SCREENS
+   Example: iPhone 16 (393 x 852)
+========================================= */
+
+@media (max-width: 680px) and (min-height: 760px) {
+
+  /*
+    Keep Home at least one screen tall.
+
+    This prevents the About section from
+    appearing at the bottom of the first screen.
+  */
+
+  .portfolio-page .portfolio {
+    min-height: 100svh;
+  }
+
+  /*
+    The portrait/cream strip remains unchanged.
+    Only the content area uses the available height.
+  */
+
+  .portfolio-page .content-panel {
+    min-height: calc(100svh - 160px);
+
+    padding-top: clamp(115px, 15vh, 145px);
+    padding-bottom: clamp(100px, 13vh, 125px);
+
+    justify-content: center;
+  }
+
+  /*
+    Spread the introduction slightly.
+  */
+
+  .portfolio-page .hero-copy {
+    margin-top: 34px;
+  }
+
+  .portfolio-page .hero-actions {
+    margin-top: 32px;
+  }
+
+  .portfolio-page .portrait-positioner {
+    width: min(60vw, 225px);
+  }
+}
+
+
+/* =========================================
+   TABLET — REMOVE EXCESS SECTION HEIGHT
+   681px - 1100px
+========================================= */
+
+@media (min-width: 681px) and (max-width: 1100px) {
+
+  /*
+    Allow the content to determine the height
+    of each section instead of forcing it to
+    fill the entire tablet viewport.
+  */
+
+  .portfolio-page .portfolio-section.about-section,
+  .portfolio-page .portfolio-section.skills-section,
+  .portfolio-page .portfolio-section.projects-section,
+  .portfolio-page .portfolio-section.experience-section,
+  .portfolio-page .portfolio-section.contact-section {
+    min-height: 0;
+    height: auto;
+  }
+
+  /*
+    Apply consistent vertical spacing.
+
+    Leave horizontal padding controlled
+    by each section's existing layout.
+  */
+
+  .portfolio-page .portfolio-section.about-section,
+  .portfolio-page .portfolio-section.skills-section,
+  .portfolio-page .portfolio-section.projects-section,
+  .portfolio-page .portfolio-section.experience-section {
+    padding-top: var(--section-space-y, 72px);
+    padding-bottom: var(--section-space-y, 72px);
+  }
+
+  /*
+    Contact has its own footer and requires
+    slightly different bottom spacing.
+  */
+
+  .portfolio-page .portfolio-section.contact-section {
+    padding-top: var(--section-space-y, 72px);
+    padding-bottom: 48px;
+  }
+}
+
+
+/* =========================================
+   HOME — TALL TABLET REFINEMENTS
+   Surface Pro, large iPads, etc.
+========================================= */
+
+@media (min-width: 901px) and (max-width: 1100px)
+       and (min-height: 1100px) {
+
+  /*
+    Limit excessive height on tall tablets.
+    The page can still grow if needed.
+  */
+
+  .portfolio-page .portfolio {
+    min-height: 0;
+    height: auto;
+    grid-template-rows: minmax(1180px, auto);
+  }
+
+  /*
+    Match the content panel to the new
+    tablet Home height.
+  */
+
+  .portfolio-page .content-panel {
+    min-height: 1180px;
+
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  /*
+    Give the portrait more presence.
+  */
+
+  .portfolio-page .portrait-positioner {
+    width: min(34vw, 340px);
+  }
+
+  /*
+    Slightly increase the text size.
+    Keep the same overall hierarchy.
+  */
+
+  .portfolio-page .intro-name {
+    font-size: clamp(3rem, 5.8vw, 4.5rem);
+  }
+
+  .portfolio-page .hero-headline {
+    font-size: 1.3rem;
+  }
+
+  .portfolio-page .hero-supporting-text {
+    font-size: 0.98rem;
+  }
+
+  .portfolio-page .hero-actions {
+    margin-top: 28px;
+  }
+}
+
+
