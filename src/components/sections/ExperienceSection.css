@@ -2172,4 +2172,81 @@
   }
 }
 
-  
+
+/* =========================================
+   MOBILE — IDF HIGHLIGHTS
+   Clean vertical layout
+========================================= */
+
+@media (max-width: 650px) {
+
+  .experience-item-idf .experience-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    margin-top: 20px;
+    padding-top: 18px;
+    margin-bottom: 10px;
+
+    border-top: 1px solid rgba(244, 240, 234, 0.17);
+  }
+
+  .experience-item-idf .experience-highlight {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 12px;
+
+    width: 100%;
+    min-width: 0;
+    padding: 13px 0;
+
+    border-right: none;
+    border-bottom: 1px solid rgba(244, 240, 234, 0.1);
+  }
+
+  .experience-item-idf .experience-highlight:first-child {
+    padding-top: 0;
+    padding-left: 0;
+  }
+
+  .experience-item-idf .experience-highlight:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .experience-item-idf .experience-highlight-icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    flex: 0 0 24px;
+    width: 24px;
+    height: 24px;
+
+    color: var(--experience-coral);
+    font-size: 1.3rem;
+  }
+
+  .experience-item-idf .experience-highlight-content {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .experience-item-idf .experience-highlight h4 {
+    margin: 0 0 4px;
+
+    font-size: 0.82rem;
+    font-weight: 750;
+    line-height: 1.35;
+  }
+
+  .experience-item-idf .experience-highlight p {
+    margin: 0;
+
+    font-size: 0.76rem;
+    line-height: 1.55;
+    color: #d8d1d6;
+  }
+}
