@@ -105,7 +105,7 @@ const projects = [
     ],
 
     githubUrl:
-      "https://github.com/lenanasirov/sign_language_translation",
+      "https://github.com/Sign-language-translation/sign_language_translation",
 
     illustration: "sign-language",
   },

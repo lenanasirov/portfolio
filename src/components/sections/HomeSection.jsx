@@ -415,7 +415,7 @@ function HomeSection({ onTransitionStarted }) {
             >
               <a
                 className="button button-primary"
-                href="/Lena-Nasirov-CV.pdf"
+                href={`${import.meta.env.BASE_URL}Lena_Nasirov_Full_Stack_Developer_CV.pdf`}
                 target="_blank"
                 rel="noreferrer"
               >
