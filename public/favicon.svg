@@ -1,0 +1,17 @@
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 720 400">
+
+  <!-- Cream LN lettering -->
+  <g fill="#f4f0ea">
+    <!-- L -->
+    <path d="M25 25 H110 V250 H260 V335 H25 Z"/>
+
+    <!-- N -->
+    <path d="M285 335 V25 H367 L495 198 V25 H575 V335 H495 L365 162 V335 Z"/>
+  </g>
+
+  <!-- Peach dot -->
+  <circle cx="650" cy="282" r="53" fill="#e99578"/>
+
+</svg>
