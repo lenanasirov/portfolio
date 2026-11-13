@@ -712,4 +712,15 @@
   }
 }
 
+/* =========================================
+   ABOUT — HIDE DECORATIVE SPARK
+   ON TABLET & MOBILE
+========================================= */
+
+@media (max-width: 1100px) {
+  .about-visual-spark.about-spark-one {
+    display: none;
+  }
+}
+
 

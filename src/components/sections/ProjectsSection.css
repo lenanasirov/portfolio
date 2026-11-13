@@ -1943,3 +1943,14 @@
   }
 }
 
+
+/* =========================================
+   PROJECTS — HIDE DECORATIVE SPARK
+   ON TABLET & MOBILE
+========================================= */
+
+@media (max-width: 1100px) {
+  .projects-heading-spark {
+    display: none;
+  }
+}
