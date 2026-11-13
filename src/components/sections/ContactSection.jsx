@@ -430,7 +430,7 @@ function ContactSection() {
       {/* FOOTER */}
       <div className="contact-footer">
         <span>
-          © {new Date().getFullYear()} · Made with care
+          © {new Date().getFullYear()} · Made with care by Lena
         </span>
 
         <a href="#home">
