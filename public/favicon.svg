@@ -1,17 +1,26 @@
-
 <svg xmlns="http://www.w3.org/2000/svg"
-     viewBox="0 0 720 400">
+     viewBox="0 0 64 64">
 
-  <!-- Cream LN lettering -->
+  <!-- Dark rounded background -->
+  <rect
+    width="64"
+    height="64"
+    rx="13"
+    fill="#22292c"
+  />
+
+  <!-- Larger cream LN letters -->
   <g fill="#f4f0ea">
-    <!-- L -->
-    <path d="M25 25 H110 V250 H260 V335 H25 Z"/>
+    <path d="M5.5 13H13.4V43.6H25.3V51.3H5.5Z"/>
 
-    <!-- N -->
-    <path d="M285 335 V25 H367 L495 198 V25 H575 V335 H495 L365 162 V335 Z"/>
+    <path d="M27.3 13H35.3L46.2 32.2V13H54.2V51.3H46.2L35.3 32.2V51.3H27.3Z"/>
   </g>
 
   <!-- Peach dot -->
-  <circle cx="650" cy="282" r="53" fill="#e99578"/>
-
+  <circle
+    cx="57.6"
+    cy="47.1"
+    r="4.4"
+    fill="#e99578"
+  />
 </svg>

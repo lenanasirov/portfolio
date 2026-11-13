@@ -21,7 +21,7 @@ const PHONE = "054-559-7137";
 
 const GITHUB_URL = "https://github.com/lenanasirov";
 const LINKEDIN_URL = "https://www.linkedin.com/in/lena-nasirov/";
-const RESUME_URL = "/resume.pdf";
+const RESUME_URL = `${import.meta.env.BASE_URL}Lena_Nasirov_Full_Stack_Developer_CV.pdf`;
 
 // Example: https://formspree.io/f/abcdefgh
 const FORMSPREE_FORM_ID = "mgaaqlpv";
