@@ -1225,7 +1225,7 @@
 
   /* Flask */
   .skills-group-right .skill-bubble-4 {
-    top: 779;
+    top: 77%;
     left: auto;
     right: 38%;
     bottom: 0;
@@ -1737,5 +1737,119 @@
     max-width: 330px;
   }
 }
+
+
+/* =========================================
+   SKILLS — LARGE TABLET PORTRAIT
+   iPad Pro 13" (1032 × 1376)
+========================================= */
+
+@media (min-width: 901px) and (max-width: 1100px)
+       and (orientation: portrait) {
+
+  /* Keep the character centered */
+  .skills-group-right {
+    left: calc(50% + 95px);
+    right: 55px;
+  }
+
+  /* Reset old bubble coordinates */
+  .skills-group-left .skill-bubble,
+  .skills-group-right .skill-bubble {
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  /* ---------- LEFT SIDE ---------- */
+
+  /* React — upper right */
+  .skills-group-left .skill-bubble-1 {
+    top: 2%;
+    right: 3%;
+  }
+
+  /* JavaScript — middle left */
+  .skills-group-left .skill-bubble-2 {
+    top: 27%;
+    left: 8%;
+  }
+
+  /* Vue.js — lower left */
+  .skills-group-left .skill-bubble-3 {
+    top: 55%;
+    left: 37%;
+  }
+
+  /* HTML5 — upper left */
+  .skills-group-left .skill-bubble-4 {
+    top: 4%;
+    left: 0;
+  }
+
+  /* CSS3 — lower right */
+  .skills-group-left .skill-bubble-5 {
+    top: 75%;
+    right: 0;
+  }
+
+  /* Git — middle right */
+  .skills-group-left .skill-bubble-6 {
+    top: 34%;
+    right: 1%;
+  }
+
+  /* C/C++ — bottom left */
+  .skills-group-left .skill-bubble-7 {
+    top: 68%;
+    left: 0;
+  }
+
+  /* ---------- RIGHT SIDE ---------- */
+
+  /* Node.js — upper inner */
+  .skills-group-right .skill-bubble-1 {
+    top: 8%;
+    left: 5%;
+  }
+
+  /* Python — upper outer */
+  .skills-group-right .skill-bubble-2 {
+    top: 31%;
+    right: 27%;
+  }
+
+  /* Express — lower outer */
+  .skills-group-right .skill-bubble-3 {
+    top: 69%;
+    right: 13%;
+  }
+
+  /* Flask — bottom right-center */
+  .skills-group-right .skill-bubble-4 {
+    top: 62%;
+    right: 44%;
+  }
+
+  /* MySQL — bottom inner */
+  .skills-group-right .skill-bubble-5 {
+    top: 74%;
+    left: 2%;
+  }
+
+  /* Docker — upper outer */
+  .skills-group-right .skill-bubble-6 {
+    top: 2%;
+    right: 21%;
+  }
+
+  /* REST APIs — middle inner */
+  .skills-group-right .skill-bubble-7 {
+    top: 40%;
+    left: 16%;
+  }
+}
+
 
 
