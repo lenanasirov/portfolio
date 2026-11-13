@@ -817,11 +817,6 @@ body {
   color: var(--ink);
 }
 
-@media (hover: hover) {
-  .button:hover {
-    transform: translateY(-3px);
-  }
-}
 
 .anchor-target {
   display: block;
@@ -1479,4 +1474,74 @@ body {
   }
 }
 
+/* =========================================
+   HOME — PORTRAIT HOVER EFFECT
+========================================= */
 
+/* Keep the entrance animation unchanged */
+.portfolio-page .portrait-stage {
+  pointer-events: none;
+}
+
+/* Enable interaction on the portrait after intro */
+.portfolio-page .portrait-positioner {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Smooth hover animation */
+.portfolio-page .portrait-motion-wrapper {
+  transform: scale(1);
+  transform-origin: center center;
+  transition: transform 450ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover only after the introduction finishes */
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-page .portfolio.page-revealed
+  .portrait-positioner:hover
+  .portrait-motion-wrapper {
+    transform: scale(1.02);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-page .portrait-motion-wrapper {
+    transition: none;
+  }
+}
+
+
+/* =========================================
+   HOME — BUTTON HOVER EFFECT
+========================================= */
+
+.portfolio-page .hero-actions .button {
+  transform: none;
+
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    color 300ms ease;
+}
+
+/* Primary button — peach to cream */
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-page .hero-actions .button-primary:hover {
+    transform: none;
+    background-color: var(--ink);
+    border-color: var(--ink);
+    color: var(--dark);
+    box-shadow: none;
+  }
+
+  /* Secondary button — outlined to filled teal */
+  .portfolio-page .hero-actions .button-secondary:hover {
+    transform: none;
+    background-color: var(--teal);
+    border-color: var(--teal);
+    color: var(--dark);
+    box-shadow: none;
+  }
+}

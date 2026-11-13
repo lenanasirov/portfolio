@@ -307,9 +307,7 @@
     cursor: pointer;
   
     transition:
-      transform 250ms ease,
       background 250ms ease,
-      box-shadow 250ms ease;
   }
   
   .contact-submit-button svg {
@@ -319,20 +317,31 @@
     transition: transform 250ms ease;
   }
   
-  @media (hover: hover) and (pointer: fine) {
-    .contact-submit-button:hover:not(:disabled) {
-      transform: translateY(-3px);
-  
-      background: #ffb093;
-  
-      box-shadow:
-        0 10px 26px rgba(240, 155, 126, 0.18);
-    }
-  
-    .contact-submit-button:hover:not(:disabled) svg {
-      transform: translate(3px, -3px);
-    }
+
+/* =========================================
+   CONTACT — SUBMIT BUTTON HOVER
+========================================= */
+
+.contact-submit-button {
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-submit-button:hover:not(:disabled) {
+    background-color: var(--contact-cream);
+    color: var(--contact-plum);
+
+    transform: none;
+    box-shadow: none;
   }
+
+  .contact-submit-button:hover:not(:disabled) svg {
+    transform: none;
+  }
+}
+
   
   .contact-submit-button:disabled {
     opacity: 0.65;
