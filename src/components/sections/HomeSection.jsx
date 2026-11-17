@@ -1,7 +1,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { motion, useReducedMotion } from 'motion/react'
-import portrait from '../../assets/portrait2.png'
+import portrait from '../../assets/portrait8.png'
 
 const fullName = 'Lena Nasirov.'
 const fullRole = 'Full Stack Developer'
@@ -14,8 +14,8 @@ const SLIDE_EASE = [0.65, 0, 0.35, 1]
 const REVEAL_EASE = [0.22, 1, 0.36, 1]
 
 const headlineLines = [
-  'Creative by instinct.',
-  'Technical by training.',
+  'Creative in approach.',
+  'Thoughtful in execution.',
   'Curious by nature.',
 ]
 
